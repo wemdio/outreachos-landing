@@ -4,6 +4,21 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>outreachOS: инфраструктура исходящих продаж</title>
+<meta name="description" content="Инфраструктура аутрич-агентства — теперь ваша. Базы контактов, запуск кампаний, ответы и встречи в одном окне. Опыт тысяч кампаний встроен в инструменты." />
+<link rel="canonical" href="https://outreachos.pro/" />
+<!-- Open Graph / Twitter — link previews (Telegram, соцсети). Без них превью «голое». -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="outreachOS" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:url" content="https://outreachos.pro/" />
+<meta property="og:title" content="outreachOS: инфраструктура исходящих продаж" />
+<meta property="og:description" content="Инфраструктура аутрич-агентства — теперь ваша. Базы контактов, запуск кампаний, ответы и встречи в одном окне." />
+<meta property="og:image" content="https://outreachos.pro/hero-d1.webp" />
+<meta property="og:image:alt" content="outreachOS — источники контактов, конструктор баз, кампании, ответы и встречи" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="outreachOS: инфраструктура исходящих продаж" />
+<meta name="twitter:description" content="Инфраструктура аутрич-агентства — теперь ваша. Базы контактов, запуск кампаний, ответы и встречи в одном окне." />
+<meta name="twitter:image" content="https://outreachos.pro/hero-d1.webp" />
 <meta name="color-scheme" content="dark" />
 <!-- fonts: self-hosted in /fonts, no external CDN -->
 <style>
@@ -378,6 +393,27 @@
     * { animation: none !important; transition-duration: 0.001ms !important; }
     .rise { opacity: 1; transform: none; }
   }
+
+  /* ── Demo lead-gate modal (visibility via display, не анимация — работает при reduced-motion) ── */
+  .dlg-overlay { position: fixed; inset: 0; z-index: 1000; display: none; align-items: center; justify-content: center; padding: 1.2rem; background: oklch(0.06 0.004 50 / 0.8); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+  .dlg-overlay.open { display: flex; }
+  .dlg { position: relative; width: 100%; max-width: 440px; background: var(--paper); border: 1px solid var(--hair); padding: clamp(1.6rem, 4vw, 2.4rem); }
+  .dlg-close { position: absolute; top: 0.7rem; right: 0.8rem; background: none; border: none; color: var(--ink-faint); font-size: 1.5rem; line-height: 1; cursor: pointer; padding: 0.3rem; transition: color 0.2s var(--ease); }
+  .dlg-close:hover { color: var(--ink); }
+  .dlg h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; margin: 0 0 0.4rem; color: var(--ink); }
+  .dlg .dlg-sub { font-family: var(--font-text); font-size: 0.98rem; color: var(--ink-dim); margin: 0 0 1.4rem; line-height: 1.45; }
+  .dlg-field { margin-bottom: 0.9rem; }
+  .dlg-field label { display: block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.4rem; }
+  .dlg-field input, .dlg-field textarea { width: 100%; box-sizing: border-box; background: transparent; border: 1px solid var(--hair); color: var(--ink); font-family: var(--font-text); font-size: 1rem; padding: 0.7rem 0.85rem; border-radius: 0; transition: border-color 0.2s var(--ease); }
+  .dlg-field textarea { resize: vertical; min-height: 4.5rem; }
+  .dlg-field input:focus, .dlg-field textarea:focus { outline: none; border-color: var(--accent); }
+  .dlg-success { font-family: var(--font-text); font-size: 1rem; color: var(--ink-dim); line-height: 1.5; }
+  .dlg-consent { display: flex; gap: 0.55rem; align-items: flex-start; margin: 0.3rem 0 1.1rem; font-family: var(--font-text); font-size: 0.84rem; color: var(--ink-dim); line-height: 1.4; }
+  .dlg-consent input { margin-top: 0.2rem; accent-color: var(--accent); flex-shrink: 0; }
+  .dlg-consent a { color: var(--ink); text-decoration: underline; }
+  .dlg-err { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); min-height: 1.1rem; margin: 0 0 0.6rem; }
+  .dlg .btn { width: 100%; justify-content: center; border: none; cursor: pointer; }
+  .dlg .btn[disabled] { opacity: 0.6; cursor: wait; }
 </style>
 </head>
 <body>
@@ -411,6 +447,7 @@
         <div class="hero-actions rise d3">
           <div class="cta-row">
             <a class="btn" href="https://app.outreachos.pro/demo">Смотреть демо</a>
+            <a class="btn js-contact-open" href="https://polzaagency.ru/" target="_blank" rel="noopener">Обсудить задачу</a>
             <a class="link-cta" href="https://app.outreachos.pro">Создать аккаунт</a>
           </div>
           <span class="micro">Демо открывается без регистрации.</span>
@@ -571,7 +608,7 @@
           <div class="tsub">под объём и задачи</div>
           <p class="pitch">Для команд с большими объёмами и своих аутрич-отделов.</p>
           <ul><li>объём под задачу</li><li>выделенный менеджер</li><li>стратегия масштабирования outbound</li><li>перенос инфраструктуры</li><li>резерв доменов и почт</li></ul>
-          <a class="tier-cta" href="https://polza-portal.ru/">Обсудить задачу</a>
+          <a class="tier-cta js-contact-open" href="https://polzaagency.ru/" target="_blank" rel="noopener">Обсудить задачу</a>
           <div class="incl">Мощность подбираем под ваш объём отправки.</div>
         </div>
       </div>
@@ -589,11 +626,56 @@
       <p class="sec-lead rise d1">Демо-аккаунт без регистрации: кампании, ответы и тарификация на живых данных. Подписку активируете, когда увидите результат.</p>
       <div class="cta-row rise d1">
         <a class="btn" href="https://app.outreachos.pro/demo">Смотреть демо</a>
-        <a class="link-cta" href="https://app.outreachos.pro">Создать аккаунт</a>
+        <a class="link-cta js-contact-open" href="https://polzaagency.ru/" target="_blank" rel="noopener">Обсудить задачу</a>
       </div>
     </div>
   </section>
 </main>
+
+<!-- Contact modal "Обсудить задачу": full lead → POST /api/demo-lead (source=hero) -->
+<div class="dlg-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+  <div class="dlg">
+    <button type="button" class="dlg-close" id="contactModalClose" aria-label="Закрыть">×</button>
+    <h3 id="contactModalTitle">Обсудить задачу</h3>
+    <p class="dlg-sub">Расскажите, что нужно — ответим и поможем подобрать решение. Обычно отвечаем в течение рабочего дня.</p>
+    <form id="contactForm" novalidate>
+      <div class="dlg-field">
+        <label for="dlgName">Имя</label>
+        <input type="text" id="dlgName" name="name" autocomplete="name" required maxlength="200" />
+      </div>
+      <div class="dlg-field">
+        <label for="dlgCompany">Компания <span style="text-transform:none; color:var(--ink-faint)">— по желанию</span></label>
+        <input type="text" id="dlgCompany" name="company" autocomplete="organization" maxlength="200" />
+      </div>
+      <div class="dlg-field">
+        <label for="dlgEmail">Почта</label>
+        <input type="email" id="dlgEmail" name="email" autocomplete="email" required maxlength="320" />
+      </div>
+      <div class="dlg-field">
+        <label for="dlgPhone">Телефон <span style="text-transform:none; color:var(--ink-faint)">— по желанию</span></label>
+        <input type="tel" id="dlgPhone" name="phone" autocomplete="tel" maxlength="50" />
+      </div>
+      <div class="dlg-field">
+        <label for="dlgTelegram">Telegram <span style="text-transform:none; color:var(--ink-faint)">— по желанию</span></label>
+        <input type="text" id="dlgTelegram" name="telegram" autocomplete="off" maxlength="100" placeholder="@username" />
+      </div>
+      <div class="dlg-field">
+        <label for="dlgMessage">Задача <span style="text-transform:none; color:var(--ink-faint)">— по желанию</span></label>
+        <textarea id="dlgMessage" name="message" maxlength="2000" rows="3" placeholder="Коротко опишите, что хотите получить"></textarea>
+      </div>
+      <label class="dlg-consent">
+        <input type="checkbox" id="dlgConsent" required />
+        <span>Согласен на обработку персональных данных в соответствии с <a href="https://app.outreachos.pro/offer" target="_blank" rel="noopener">политикой</a>.</span>
+      </label>
+      <p class="dlg-err" id="dlgErr" aria-live="polite"></p>
+      <button type="submit" class="btn" id="dlgSubmit">Отправить</button>
+    </form>
+    <div class="dlg-success" id="dlgSuccess" style="display:none">
+      <h3 style="margin:0 0 0.4rem">Спасибо! Заявка отправлена.</h3>
+      <p style="margin:0">Свяжемся с вами в ближайшее время. Если удобнее — можно сразу <a href="https://app.outreachos.pro/demo" style="color:var(--ink); text-decoration:underline">посмотреть демо</a>.</p>
+    </div>
+  </div>
+</div>
 
 <footer>
   <div class="wrap foot">
@@ -1141,6 +1223,90 @@
     });
     document.body.appendChild(btn);
   }
+})();
+</script>
+
+<script>
+/* Contact modal ("Обсудить задачу"): open on .js-contact-open, validate, best-effort
+   POST the lead to /api/demo-lead (source=hero), then show a success state. The
+   triggers keep a real href fallback, so without JS the link still goes somewhere. */
+(function () {
+  var API = 'https://app.outreachos.pro/api/demo-lead';
+  var modal = document.getElementById('contactModal');
+  if (!modal) return;
+  var form = document.getElementById('contactForm');
+  var success = document.getElementById('dlgSuccess');
+  var err = document.getElementById('dlgErr');
+  var submitBtn = document.getElementById('dlgSubmit');
+  var nameI = document.getElementById('dlgName');
+  var companyI = document.getElementById('dlgCompany');
+  var emailI = document.getElementById('dlgEmail');
+  var phoneI = document.getElementById('dlgPhone');
+  var tgI = document.getElementById('dlgTelegram');
+  var msgI = document.getElementById('dlgMessage');
+  var consentI = document.getElementById('dlgConsent');
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var lastFocus = null;
+
+  function onKey(e) { if (e.key === 'Escape') closeModal(); }
+  function openModal(e) {
+    if (e) e.preventDefault();
+    lastFocus = document.activeElement;
+    modal.classList.add('open');
+    setTimeout(function () { try { nameI.focus(); } catch (_) {} }, 30);
+    document.addEventListener('keydown', onKey);
+  }
+  function closeModal() {
+    modal.classList.remove('open');
+    document.removeEventListener('keydown', onKey);
+    if (lastFocus && lastFocus.focus) { try { lastFocus.focus(); } catch (_) {} }
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.js-contact-open'), function (el) {
+    el.addEventListener('click', openModal);
+  });
+  document.getElementById('contactModalClose').addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    err.textContent = '';
+    var name = (nameI.value || '').trim();
+    var email = (emailI.value || '').trim();
+    if (!name) { err.textContent = 'Укажите имя'; nameI.focus(); return; }
+    if (!EMAIL_RE.test(email)) { err.textContent = 'Укажите корректную почту'; emailI.focus(); return; }
+    if (!consentI.checked) { err.textContent = 'Нужно согласие на обработку данных'; return; }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Отправляем…';
+
+    var data = new URLSearchParams();
+    data.set('source', 'hero');
+    data.set('name', name);
+    data.set('email', email);
+    var company = (companyI.value || '').trim();
+    var phone = (phoneI.value || '').trim();
+    var telegram = (tgI.value || '').trim();
+    var message = (msgI.value || '').trim();
+    if (company) data.set('company', company);
+    if (phone) data.set('phone', phone);
+    if (telegram) data.set('telegram', telegram);
+    if (message) data.set('message', message);
+
+    var done = false;
+    function finish() { if (done) return; done = true; form.style.display = 'none'; success.style.display = 'block'; }
+    // Best-effort capture; show success regardless within 3s (even if the POST hangs).
+    setTimeout(finish, 3000);
+    try {
+      fetch(API, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body: data.toString(),
+        keepalive: true,
+      }).then(finish, finish);
+    } catch (_) { finish(); }
+  });
 })();
 </script>
 
