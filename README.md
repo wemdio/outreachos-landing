@@ -15,6 +15,7 @@ hero-d1-1600.webp     # рендер-схема (десктоп-ретина, sr
 outreachos-logo.webp  # лого в навбаре (WebP)
 icon-tg.png           # иконка Telegram
 icon-wa.png           # иконка WhatsApp
+llms.txt              # сводка сайта для AI-агентов/LLM (стандарт llmstxt.org)
 ```
 
 ## Локальный просмотр
