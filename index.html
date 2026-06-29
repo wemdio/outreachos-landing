@@ -385,6 +385,8 @@
   /* ---------- footer ---------- */
   footer { border-top: 1px solid var(--hair); border-image: linear-gradient(to right, transparent, var(--hair) 15%, var(--hair) 85%, transparent) 1; padding-block: 1.8rem; }
   .foot { display: flex; flex-wrap: wrap; gap: 0.8rem 2rem; align-items: baseline; font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-faint); }
+  .foot a { color: var(--ink-dim); text-decoration: none; transition: color 0.2s var(--ease); }
+  .foot a:hover { color: var(--ink); }
 
   /* ---------- reveal (pure CSS; visibility never depends on JS; no text-wrap:balance) ---------- */
   @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
@@ -693,6 +695,9 @@
 <footer>
   <div class="wrap foot">
     <span>© 2026 outreachOS</span>
+    <a href="https://app.outreachos.pro/offer" target="_blank" rel="noopener">Договор оферты</a>
+    <a href="https://app.outreachos.pro/consent" target="_blank" rel="noopener">Согласие на обработку ПДн</a>
+    <a href="https://app.outreachos.pro/privacy" target="_blank" rel="noopener">Политика обработки ПДн</a>
   </div>
 </footer>
 
