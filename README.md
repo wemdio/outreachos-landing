@@ -16,6 +16,8 @@ outreachos-logo.webp  # лого в навбаре (WebP)
 icon-tg.png           # иконка Telegram
 icon-wa.png           # иконка WhatsApp
 llms.txt              # сводка сайта для AI-агентов/LLM (стандарт llmstxt.org)
+robots.txt            # директивы для краулеров (+ ссылка на sitemap)
+sitemap.xml           # карта сайта (одна страница)
 ```
 
 ## Локальный просмотр

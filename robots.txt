@@ -1,0 +1,6 @@
+# https://outreachos.pro/robots.txt
+# Публичный маркетинговый лендинг — открыт для индексации, включая AI-краулеров.
+User-agent: *
+Allow: /
+
+Sitemap: https://outreachos.pro/sitemap.xml
