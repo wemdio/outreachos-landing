@@ -6,6 +6,8 @@
 <title>outreachOS: инфраструктура исходящих продаж</title>
 <meta name="description" content="Инфраструктура аутрич-агентства — теперь ваша. Базы контактов, запуск кампаний, ответы и встречи в одном окне. Опыт тысяч кампаний встроен в инструменты." />
 <link rel="canonical" href="https://outreachos.pro/" />
+<!-- Preload LCP hero image (responsive) so it starts immediately and isn't starved by the font requests. -->
+<link rel="preload" as="image" href="hero-d1-1200.webp" imagesrcset="hero-d1-768.webp 768w, hero-d1-1200.webp 1200w, hero-d1-1600.webp 1600w" imagesizes="(max-width: 1100px) 90vw, 540px" fetchpriority="high" />
 <!-- Open Graph / Twitter — link previews (Telegram, соцсети). Без них превью «голое». -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="outreachOS" />
@@ -13,12 +15,12 @@
 <meta property="og:url" content="https://outreachos.pro/" />
 <meta property="og:title" content="outreachOS: инфраструктура исходящих продаж" />
 <meta property="og:description" content="Инфраструктура аутрич-агентства — теперь ваша. Базы контактов, запуск кампаний, ответы и встречи в одном окне." />
-<meta property="og:image" content="https://outreachos.pro/hero-d1.webp" />
+<meta property="og:image" content="https://outreachos.pro/hero-d1-1200.webp" />
 <meta property="og:image:alt" content="outreachOS — источники контактов, конструктор баз, кампании, ответы и встречи" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="outreachOS: инфраструктура исходящих продаж" />
 <meta name="twitter:description" content="Инфраструктура аутрич-агентства — теперь ваша. Базы контактов, запуск кампаний, ответы и встречи в одном окне." />
-<meta name="twitter:image" content="https://outreachos.pro/hero-d1.webp" />
+<meta name="twitter:image" content="https://outreachos.pro/hero-d1-1200.webp" />
 <meta name="color-scheme" content="dark" />
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -435,7 +437,7 @@
 
 <div class="wrap">
   <nav class="top">
-    <a class="brand" href="#" aria-label="outreachOS"><img class="brand-logo" src="outreachos-logo.png" width="760" height="139" alt="outreachOS" /></a>
+    <a class="brand" href="#" aria-label="outreachOS"><img class="brand-logo" src="outreachos-logo.webp" width="408" height="75" alt="outreachOS" /></a>
     <span class="links">
       <a href="https://polzaagency.ru/?utm_source=outreachos.pro&utm_medium=nav&utm_campaign=pod_kluch" target="_blank" rel="noopener">Под ключ</a>
       <a href="#cases">Кейсы</a>
@@ -468,7 +470,7 @@
           <span class="micro">Демо открывается без регистрации.</span>
         </div>
 
-        <div class="hero-iso" aria-hidden="true"><img class="hero-scene" src="hero-d1.webp" srcset="hero-d1.webp 1x, hero-d1@2x.webp 2x" alt="Схема outreachOS: источники контактов → конструктор баз → запуск кампаний → ответы, лиды и встречи" decoding="async" /><canvas class="hero-fx" id="hero-fx"></canvas><div class="hero-labels" id="hero-labels"></div></div>
+        <div class="hero-iso" aria-hidden="true"><img class="hero-scene" src="hero-d1-1200.webp" srcset="hero-d1-768.webp 768w, hero-d1-1200.webp 1200w, hero-d1-1600.webp 1600w" sizes="(max-width: 1100px) 90vw, 540px" width="1600" height="940" fetchpriority="high" decoding="async" alt="Схема outreachOS: источники контактов → конструктор баз → запуск кампаний → ответы, лиды и встречи" /><canvas class="hero-fx" id="hero-fx"></canvas><div class="hero-labels" id="hero-labels"></div></div>
       </div>
     </div>
   </section>

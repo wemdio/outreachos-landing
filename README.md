@@ -9,9 +9,10 @@
 ```
 index.html            # вся страница (HTML + CSS + JS инлайн)
 fonts/                # self-hosted шрифты (Fixel Display, Spectral, JetBrains Mono) — без внешних CDN
-hero-d1.webp          # рендер-схема (1x)
-hero-d1@2x.webp       # рендер-схема (2x, ретина)
-outreachos-logo.png   # лого в навбаре
+hero-d1-768.webp      # рендер-схема (мобайл, srcset 768w)
+hero-d1-1200.webp     # рендер-схема (дефолт / OG-превью, srcset 1200w)
+hero-d1-1600.webp     # рендер-схема (десктоп-ретина, srcset 1600w)
+outreachos-logo.webp  # лого в навбаре (WebP)
 icon-tg.png           # иконка Telegram
 icon-wa.png           # иконка WhatsApp
 ```
