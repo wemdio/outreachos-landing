@@ -1,0 +1,14 @@
+{
+  "name": "outreachOS",
+  "short_name": "outreachOS",
+  "description": "Инфраструктура исходящих продаж: базы контактов, запуск кампаний, ответы и встречи в одном окне.",
+  "lang": "ru",
+  "icons": [
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" }
+  ],
+  "theme_color": "#050403",
+  "background_color": "#050403",
+  "display": "standalone",
+  "start_url": "/"
+}

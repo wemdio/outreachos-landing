@@ -18,6 +18,12 @@ icon-wa.png           # иконка WhatsApp
 llms.txt              # сводка сайта для AI-агентов/LLM (стандарт llmstxt.org)
 robots.txt            # директивы для краулеров (+ ссылка на sitemap)
 sitemap.xml           # карта сайта (одна страница)
+og-cover.jpg          # OG-превью 1200×630 (JPEG — рендерится в Telegram, в отличие от WebP)
+favicon.ico           # фавикон (16/32/48)
+favicon.svg           # фавикон (SVG)
+apple-touch-icon.png  # иконка для iOS (180×180)
+site.webmanifest      # PWA-манифест
+404.html              # страница 404 (noindex; подключить в Caddy handle_errors)
 ```
 
 ## Локальный просмотр

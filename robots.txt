@@ -3,4 +3,7 @@
 User-agent: *
 Allow: /
 
+# Яндекс: не плодить дубли главной из-за UTM-меток входящих ссылок
+Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content
+
 Sitemap: https://outreachos.pro/sitemap.xml
