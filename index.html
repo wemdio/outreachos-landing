@@ -90,6 +90,29 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/110060586" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+<!-- First-party UTM capture → parent-domain cookie, чтобы метки кампании пережили
+     переход на app.outreachos.pro (регистрация напрямую и через демо) и доехали
+     до Telegram-оповещения о регистрации + в БД. Отдельно от Метрики (у неё своя
+     аналитика). Ставится только при наличии utm_* в URL. -->
+<script>
+(function () {
+  try {
+    var qs = new URLSearchParams(location.search);
+    var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+    var utm = {}, has = false;
+    keys.forEach(function (k) { var v = qs.get(k); if (v) { utm[k] = v.slice(0, 200); has = true; } });
+    if (!has) return;
+    utm.referrer = (document.referrer || '').slice(0, 300);
+    utm.landing = (location.pathname + location.search).slice(0, 300);
+    utm.ts = new Date().toISOString();
+    var onProd = location.hostname.indexOf('outreachos.pro') !== -1;
+    document.cookie = 'oos_utm=' + encodeURIComponent(JSON.stringify(utm)) +
+      '; Path=/; Max-Age=2592000; SameSite=Lax' +
+      (location.protocol === 'https:' ? '; Secure' : '') +
+      (onProd ? '; Domain=outreachos.pro' : '');
+  } catch (e) { /* attribution is best-effort */ }
+})();
+</script>
 <!-- fonts: self-hosted in /fonts, no external CDN -->
 <style>
   /* ============================================================
