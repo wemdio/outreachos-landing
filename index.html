@@ -563,7 +563,7 @@
       </div>
       <dl class="feats rise d1">
         <div class="feat"><dt>Конструктор баз</dt><dd>Загрузите файл, и система уберёт дубли, найдёт почты по имени и проверит, какие сайты живы.</dd></div>
-        <div class="feat"><dt>Парсеры</dt><dd>HH.ru, поиск и Яндекс.Карты: соберите контакты из открытых источников и выгрузите в кампанию.</dd></div>
+        <div class="feat"><dt>Парсеры</dt><dd>Поиск по вакансиям, поисковая выдача и Яндекс.Карты: соберите контакты из открытых источников и выгрузите в кампанию.</dd></div>
         <div class="feat"><dt>Мастер запуска</dt><dd>От загрузки базы и сопоставления колонок до цепочки писем с A/B, расписания и выбора ящиков. За несколько шагов, без менеджера.</dd></div>
         <div class="feat"><dt>Ответы и лиды</dt><dd>Все входящие с поиском и AI-оценкой интереса. Отвечайте на месте, помечайте лидов, ведите заметки.</dd></div>
         <div class="feat"><dt>Бриф</dt><dd>Профиль аудитории и оффера. AI помогает заполнить и предлагает гипотезы для писем.</dd></div>
@@ -1061,7 +1061,7 @@
   var t3 = box(5.8, -0.3, 1.5, 0.7, 0.3, 3.05, 'iso-tag-top', 'iso-tag-side'); label(t3.top, 'AI-ОЦЕНКА', 'iso-label-dim', -2);
   cable(t1.botFront, m1.top); cable(t2.botFront, m2.top); cable(t3.botFront, m3.top);
 
-  var in1 = box(-3.6, 1.0, 1.4, 1.4, 1.0, 2.3, 'iso-wire', 'iso-wire'); label(in1.right, 'HH.RU', 'iso-label-dim', 2);
+  var in1 = box(-3.6, 1.0, 1.4, 1.4, 1.0, 2.3, 'iso-wire', 'iso-wire'); label(in1.right, 'ВАКАНСИИ', 'iso-label-dim', 2);
   var in2 = box(-4.0, 2.8, 1.4, 1.4, 1.0, 1.2, 'iso-wire', 'iso-wire'); label(in2.right, 'ЯНДЕКС.КАРТЫ', 'iso-label-dim', 2);
   var in3 = box(-3.6, 4.7, 1.4, 1.4, 1.0, 0.1, 'iso-wire', 'iso-wire'); label(in3.right, 'ВАШ ФАЙЛ', 'iso-label-dim', 2);
   cable(in1.botFront, m1.left); cable(in2.botFront, m1.left); cable(in3.botFront, m1.left);
@@ -1091,7 +1091,7 @@
       gFlow.appendChild(g);
     }
   }
-  flow([in1.botFront, m1.botFront], 'iso-flow-b', 2, 2.4);            // HH.ru -> Конструктор
+  flow([in1.botFront, m1.botFront], 'iso-flow-b', 2, 2.4);            // вакансии -> Конструктор
   flow([in2.botFront, m1.botFront], 'iso-flow-b', 2, 2.8);           // Яндекс.Карты -> Конструктор
   flow([in3.botFront, m1.botFront], 'iso-flow-b', 2, 3.0);           // Ваш файл -> Конструктор
   flow([m1.botFront, m2.botFront, m3.botFront, o1.left], 'iso-flow', 3, 3.8); // Конструктор -> ... -> Лиды
@@ -1257,7 +1257,7 @@
   // [text, x, y, class] — x,y normalized over the render. Mapping is a first guess; positions verified on boxes.
   var LABELS = [
     ['ПОИСКОВАЯ ВЫДАЧА', 0.257, 0.019, ''],
-    ['HH.RU',            0.010, 0.326, ''],
+    ['ВАКАНСИИ',         0.010, 0.326, ''],
     ['ЯНДЕКС.КАРТЫ',     0.204, 0.091, ''],
     ['ВАШ ФАЙЛ',         0.147, 0.167, ''],
     ['НАША БАЗА',        0.068, 0.241, ''],
