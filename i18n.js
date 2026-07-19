@@ -216,7 +216,7 @@
 
   function init() {
     bindControls();
-    applyLocale(readPreference(), { persist: false });
+    applyLocale(readPreference());
     observeChanges();
   }
 
