@@ -6,6 +6,10 @@
 <title>Сервис холодных email-рассылок для B2B — outreachOS</title>
 <meta name="description" content="Сервис холодных email-рассылок для B2B: парсинг контактов, валидация и прогрев почт, запуск кампаний, ответы и встречи. Опыт тысяч кампаний встроен в инструменты." />
 <link rel="canonical" href="https://outreachos.pro/" />
+<link rel="alternate" hreflang="ru" href="https://outreachos.pro/?lang=ru" />
+<link rel="alternate" hreflang="en" href="https://outreachos.pro/?lang=en" />
+<link rel="alternate" hreflang="es" href="https://outreachos.pro/?lang=es" />
+<link rel="alternate" hreflang="x-default" href="https://outreachos.pro/" />
 <!-- Preload LCP hero image (responsive) so it starts immediately and isn't starved by the font requests. -->
 <link rel="preload" as="image" href="hero-d1-1200.webp" imagesrcset="hero-d1-768.webp 768w, hero-d1-1200.webp 1200w, hero-d1-1600.webp 1600w" imagesizes="(max-width: 1100px) 90vw, 540px" fetchpriority="high" />
 <!-- Open Graph / Twitter — link previews (Telegram, соцсети). Без них превью «голое». -->
@@ -217,6 +221,10 @@
   .top .nav-ico:hover { opacity: 1; }
   .top .nav-ico + .nav-ico { margin-left: -0.9rem; }
   .top .nav-ico img { height: 19px; width: auto; display: block; }
+  .lang-switch { display: inline-flex; align-items: center; gap: 0.15rem; flex: none; }
+  .lang-switch button { appearance: none; border: 0; background: transparent; color: var(--ink-faint); font-family: var(--font-mono); font-size: 0.68rem; line-height: 1; padding: 0.42rem 0.38rem; cursor: pointer; transition: color 0.2s var(--ease), background 0.2s var(--ease); }
+  .lang-switch button:hover { color: var(--ink); }
+  .lang-switch button.is-active { color: var(--paper); background: var(--ink); }
 
   /* ---------- hero ---------- */
   .hero { padding-top: clamp(2.5rem, 6vw, 6rem); padding-bottom: clamp(3rem, 6vw, 5.5rem); }
@@ -525,6 +533,11 @@
       <a class="demo" href="https://app.outreachos.pro/demo">Смотреть демо</a>
       <a class="nav-ico" href="https://t.me/mironova_PolzaAgency" target="_blank" rel="noopener" aria-label="Telegram"><img src="icon-tg.png" alt="Telegram" width="48" height="48" /></a>
     </span>
+    <div class="lang-switch" data-language-switcher data-i18n-skip role="group" aria-label="Language">
+      <button type="button" data-lang="ru" aria-pressed="true">RU</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="es" aria-pressed="false">ES</button>
+    </div>
   </nav>
 </div>
 </header>
@@ -1408,6 +1421,9 @@
   });
 })();
 </script>
+
+<script src="translations.generated.js"></script>
+<script src="i18n.js"></script>
 
 </body>
 </html>
